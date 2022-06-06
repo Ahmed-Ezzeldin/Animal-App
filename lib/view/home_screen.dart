@@ -1,3 +1,6 @@
+// ignore_for_file: avoid_print
+
+import 'package:animalapp/model/Singleton_class.dart';
 import 'package:animalapp/viewmodel/home_screen_viewmodel.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +39,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(),
             const SizedBox(),
+            ElevatedButton(
+              child: const Text("Test Singleton"),
+              onPressed: () {
+                // ========================================= create instance by  ( Named Constructor )
+                // var test1 = MySingleton.instance;
+                // var test2 = MySingleton.instance;
+                // ========================================= create instance by factory ( Default Constructor )
+                var test1 = MySingleton();
+                var test2 = MySingleton();
+
+                print(">>>> ${test1.name}");
+                print(">>>> ${test2.name}");
+                test1.setName("Ahmed");
+                print(">>>> ${test1.name}");
+                print(">>>> ${test2.name}");
+                test2.setName("Ahmed 2");
+                print(">>>> ${test1.name}");
+                print(">>>> ${test2.name}");
+              },
+            ),
             const SizedBox(),
           ],
         ),
